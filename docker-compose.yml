@@ -1,19 +1,22 @@
 services:
   web:
     build: .
-    command: python /code/manage.py runserver 0.0.0.0:8000
+    command: python /code/manage.py runserver 0.0.0.0:8002
     volumes:
       - .:/code
     ports:
-      - 8000:8000
+      - 8002:8002
     depends_on:
       - db
+    restart: always  # Ensure the web service restarts on computer reboot
+
   db:
     image: postgres:16
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     environment:
       - "POSTGRES_HOST_AUTH_METHOD=trust"
+    restart: always  # Ensure the db service restarts on computer reboot
 
 volumes:
   postgres_data:
