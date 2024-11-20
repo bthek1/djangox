@@ -17,13 +17,10 @@ down: ## Stop the project
 build:  ## Build the project
 	docker compose build
 
-
 restart: down up ## Restart the project
-
 
 logs: ## Show logs
 	docker compose logs -f
-
 
 shell: up ## Execute a shell in the web container
 	docker compose exec web bash
