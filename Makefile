@@ -67,3 +67,25 @@ rm-migrations: ## Remove all migration files
 	docker compose exec web find . -path "*/migrations/0*.py" -delete
 	docker compose exec web find . -path "*/migrations/0*.py" -delete
 	@echo "Deleted all migrations. Run 'make migrate' to recreate them."
+	
+backup: ## Backup the database
+	mkdir -p backups
+	docker compose exec web python manage.py dumpdata --indent 2 > backups/db_backup_$(shell date +%Y%m%d_%H%M%S).json
+	@echo "Backup completed and saved in the backups folder."
+
+
+restore: ## Restore the database from the latest or specified backup
+	@latest_backup=$$(ls -t ./backups/db_backup_*.json 2>/dev/null | head -n 1); \
+	if [ -z "$$latest_backup" ]; then \
+		echo "Error: No backup files found in the backups directory."; \
+		exit 1; \
+	fi; \
+	read -p "Enter the backup file to restore (default: $$latest_backup): " backup_file; \
+	backup_file=$${backup_file:-$$latest_backup}; \
+	if [ ! -f "$$backup_file" ]; then \
+		echo "Error: Backup file '$$backup_file' not found."; \
+		exit 1; \
+	fi; \
+	echo "Restoring database from backup: $$backup_file"; \
+	docker compose exec web python manage.py loaddata "$$backup_file"; \
+	echo "Database restored from backup."
