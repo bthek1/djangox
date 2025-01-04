@@ -39,6 +39,8 @@ pytest-django = "^4.9.0"
 pytest-benchmark = "^5.1.0"
 django-environ = "^0.11.2"
 django-hijack = "^3.7.1"
+black = "^24.10.0"
+ruff = "^0.8.5"
 
 
 [build-system]
@@ -51,3 +53,28 @@ log_cli = true
 log_cli_level = "INFO"
 addopts = "--capture=no" # show print statements
 python_files = ["*test*.py","tests/*.py"]
+
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.mypy_cache
+  | \.pytest_cache
+  | \.tox
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.ruff]
+select = ["E", "F", "W"]  # Enable specific linting rules
+ignore = ["W503"]         # Ignore specific rules
+exclude = ["migrations", "__init__.py"]
+line-length = 88          # Set maximum line length
+fixable = ["F401", "E501"] # Rules that Ruff is allowed to fix

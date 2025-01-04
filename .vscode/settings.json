@@ -1,0 +1,27 @@
+{
+    // User pytest
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    // Format python files with ruff
+    "[python]": {
+      "editor.formatOnSave": true,
+      "editor.defaultFormatter": "charliermarsh.ruff",
+      "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit",
+        "source.fixAll.ruff": "explicit"
+      }
+    },
+    // Format javascript files with prettier
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    // Format json files with vscode built-in formatter
+    "[jsonc]": {
+      "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "python.analysis.extraPaths": [
+      "./crms/clinico/cliniko-api-client",
+      "./crms/cliniko/autogen"
+    ]
+  }
