@@ -42,6 +42,7 @@ django-hijack = "^3.7.1"
 black = "^24.10.0"
 ruff = "^0.8.5"
 django-extensions = "^3.2.3"
+dj-database-url = "^2.3.0"
 
 
 [build-system]
