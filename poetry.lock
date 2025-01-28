@@ -602,6 +602,17 @@ files = [
 ]
 
 [[package]]
+name = "phonenumbers"
+version = "8.13.53"
+description = "Python version of Google's common library for parsing, formatting, storing and validating international phone numbers."
+optional = false
+python-versions = "*"
+files = [
+    {file = "phonenumbers-8.13.53-py2.py3-none-any.whl", hash = "sha256:fa7b93e12b3ac9baa7b056061cfcbe4de406039f720bb539dc240bed9cc43da2"},
+    {file = "phonenumbers-8.13.53.tar.gz", hash = "sha256:b7308f21837defa567b4f961925b6c652dd5148f3e0fadbd158a10758cc63d91"},
+]
+
+[[package]]
 name = "platformdirs"
 version = "4.3.6"
 description = "A small Python package for determining appropriate platform-specific dirs, e.g. a `user data dir`."
@@ -975,4 +986,4 @@ brotli = ["brotli"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "4673983ba80eef1687b6a69587f2df318fb54c724e1e95eb4b80b37e8c955804"
+content-hash = "781f5779d955f39e58973055c504c228cd82fe720d2d0338f98a33516ed866e6"
