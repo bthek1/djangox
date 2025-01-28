@@ -478,6 +478,24 @@ lint = ["msgcheck (==4.1.0)", "ruff (==0.8.4)"]
 test = ["pytest", "pytest-cov", "pytest-django"]
 
 [[package]]
+name = "django-phonenumber-field"
+version = "8.0.0"
+description = "An international phone number field for django models."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "django_phonenumber_field-8.0.0-py3-none-any.whl", hash = "sha256:196c917b70c01a98e327f482eb8a4a4a55a29891db551f99078585397370b3ba"},
+    {file = "django_phonenumber_field-8.0.0.tar.gz", hash = "sha256:8a560fe1b01b94c9de8cde22bc373b695f023cc6df4baba00264cb079da9f631"},
+]
+
+[package.dependencies]
+Django = ">=3.2"
+
+[package.extras]
+phonenumbers = ["phonenumbers (>=7.0.2)"]
+phonenumberslite = ["phonenumberslite (>=7.0.2)"]
+
+[[package]]
 name = "djangorestframework"
 version = "3.15.2"
 description = "Web APIs for Django, made easy."
@@ -957,4 +975,4 @@ brotli = ["brotli"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "1096e8c2be09395c9c3ecb1efece86732879e4f778590abc2715cbae5fc45fcd"
+content-hash = "4673983ba80eef1687b6a69587f2df318fb54c724e1e95eb4b80b37e8c955804"
